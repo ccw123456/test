@@ -15,26 +15,26 @@ public class RectObject {
         this.y = y;
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) {
-//            return true;
-//        }
-//        if (obj == null) {
-//            return false;
-//        }
-//        if (getClass() != obj.getClass()) {
-//            return false;
-//        }
-//        final RectObject rectObject = (RectObject) obj;
-//        if (x != rectObject.x) {
-//            return false;
-//        }
-//        if (y != rectObject.y) {
-//            return false;
-//        }
-//        return true;
-//    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final RectObject rectObject = (RectObject) obj;
+        if (x != rectObject.x) {
+            return false;
+        }
+        if (y != rectObject.y) {
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public int hashCode() {
@@ -47,14 +47,19 @@ public class RectObject {
 
     public static void main(String[] args) {
         Set<RectObject> set = new HashSet<>();
-        RectObject rectObject1 = new RectObject(3, 3);
-        RectObject rectObject2 = new RectObject(5, 5);
-        RectObject rectObject3 = new RectObject(3, 3);
+        RectObject rectObject1 = new RectObject(2, 2);
+        RectObject rectObject2 = new RectObject(3, 3);
+        RectObject rectObject3 = new RectObject(2, 2);
 
-        set.add(rectObject1);     //1 2
+        set.add(rectObject1);
         set.add(rectObject2);
         set.add(rectObject3);
-        set.add(rectObject1);
+
+        rectObject3.y=3;
+        System.out.println("删除前大小:"+set.size());
+        set.remove(rectObject3);
+        System.out.println("删除后大小:"+set.size());
+
 
         System.out.println(set.size());
 
